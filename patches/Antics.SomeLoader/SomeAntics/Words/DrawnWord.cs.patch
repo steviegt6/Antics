@@ -1,0 +1,28 @@
+--- src/SomeAntics/SomeAntics/Words/DrawnWord.cs
++++ src/Antics.SomeLoader/SomeAntics/Words/DrawnWord.cs
+@@ -1,18 +_,19 @@
+ using Microsoft.Xna.Framework;
++using SomeAntics.API.ModTypes;
+ using WordLibrary;
+ 
+ namespace SomeAntics.Words
+ {
+-	public readonly struct DrawnWord
++	public partial class DrawnWord
+ 	{
+-		public readonly Word word;
++		public Word word;
+-		public readonly Rectangle[] surroundingBoxes;
++		public Rectangle[] surroundingBoxes;
+ 
+ 		public DrawnWord(Word word, params Rectangle[] surroundingBoxes) {
+-			this.word = word;
+-			this.surroundingBoxes = surroundingBoxes;
++			this.word = GlobalDrawnWord.GetModifiedWord(word);
++			this.surroundingBoxes = GlobalDrawnWord.GetModifiedSurroundingBoxes(surroundingBoxes);
+ 		}
+ 
+-		public bool HitboxContains(Vector2 position) => surroundingBoxes[0].Contains(position);
++		public bool HitboxContains(Vector2 position) => GlobalDrawnWord.HitboxContains(position, surroundingBoxes[0].Contains(position));
+ 	}
+ }

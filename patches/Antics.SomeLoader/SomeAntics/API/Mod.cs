@@ -1,5 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Input;
 using SomeAntics.API.Interfaces;
+using SomeAntics.API.ModTypes;
+using System.Collections.Generic;
 using System.Reflection;
 
 // TODO: documentation
@@ -7,6 +9,8 @@ namespace SomeAntics.API
 {
 	public abstract class Mod : ILoadable
 	{
+		internal readonly List<GlobalDrawnWord> globalDrawnWords = new();
+
 		public Assembly Code { get; internal set; }
 
 		// null -> vanilla behavior
