@@ -8,7 +8,7 @@
  namespace SomeAntics.Words
  {
 -	public readonly struct DrawnWord
-+	public partial class DrawnWord
++	public class DrawnWord
  	{
 -		public readonly Word word;
 +		public Word word;
