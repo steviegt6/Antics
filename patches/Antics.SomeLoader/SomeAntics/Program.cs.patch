@@ -1,0 +1,10 @@
+--- src/SomeAntics/SomeAntics/Program.cs
++++ src/Antics.SomeLoader/SomeAntics/Program.cs
+@@ -1,4 +_,7 @@
+ using System;
++using System.Runtime.CompilerServices;
++
++[assembly: InternalsVisibleTo("Antics.SomeLoader")]
+ 
+ namespace SomeAntics
+ {
