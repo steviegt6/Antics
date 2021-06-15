@@ -1,0 +1,14 @@
+--- src/SomeAntics/SomeAntics/Words/NotSoImportantWord.cs
++++ src/Antics.SomeLoader/SomeAntics/Words/NotSoImportantWord.cs
+@@ -1,8 +_,10 @@
++using SomeAntics.API.Core;
++using SomeAntics.API.Core.Types;
+ using WordLibrary;
+ 
+ namespace SomeAntics.Words
+ {
+-	public class NotSoImportantWord : Word
++	public class NotSoImportantWord : ModWord
+ 	{
+ 		public NotSoImportantWord()
+ 			: base("not so important") {

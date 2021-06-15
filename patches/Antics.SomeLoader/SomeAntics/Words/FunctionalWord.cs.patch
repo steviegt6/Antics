@@ -1,0 +1,16 @@
+--- src/SomeAntics/SomeAntics/Words/FunctionalWord.cs
++++ src/Antics.SomeLoader/SomeAntics/Words/FunctionalWord.cs
+@@ -1,10 +_,12 @@
+ using Microsoft.Xna.Framework;
++using SomeAntics.API.Core;
++using SomeAntics.API.Core.Types;
+ using SomeAntics.Objects.Interactables;
+ using WordLibrary;
+ 
+ namespace SomeAntics.Words
+ {
+-	public abstract class FunctionalWord : Word
++	public abstract class FunctionalWord : ModWord
+ 	{
+ 		public static readonly Color[] defaultColors = new Color[2] {
+ 			Color.Black,
