@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.CommandLine" Version="2.0.0-beta1.21216.1" />
+    <PackageReference Include="System.CommandLine.DragonFruit" Version="0.3.0-alpha.21216.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="MonoGame.Framework">
+      <HintPath>..\..\..\..\Downloads\SomeAntics (1)\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="SomeAntics">
+      <HintPath>..\..\..\..\Downloads\SomeAntics (1)\SomeAntics.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
