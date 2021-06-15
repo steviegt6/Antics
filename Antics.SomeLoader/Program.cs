@@ -2,6 +2,8 @@
 using System.IO;
 using Antics.SomeLoader.CLI;
 using Antics.SomeLoader.CLI.Personal;
+using SomeAntics.API;
+using SomeAntics.API.Internal;
 using System.Reflection;
 
 namespace Antics.SomeLoader
@@ -46,6 +48,8 @@ namespace Antics.SomeLoader
 			AssertModdedPresence();
 
 			CommandLineUtilities.WriteLineWithColor("Launching SomeAntics...", ConsoleColor.DarkGray);
+
+			ModManager.Mods.Add(new InternalMod(typeof(Launcher).Assembly.GetName().Version));
 
 			RunGame();
 		}

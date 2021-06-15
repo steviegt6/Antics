@@ -1,6 +1,8 @@
-﻿using Microsoft.Xna.Framework.Input;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using SomeAntics.API.Interfaces;
 using SomeAntics.API.ModTypes;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 
@@ -13,6 +15,15 @@ namespace SomeAntics.API
 		internal readonly List<GlobalFunctionalWord> globalFunctionalWords = new();
 
 		public Assembly Code { get; internal set; }
+
+		public string ModName { get; }
+
+		public Version Version { get; }
+
+		internal Mod(string name, Version version) {
+			ModName = name;
+			Version = version;
+		}
 
 		// null -> vanilla behavior
 		public virtual bool? RegisterKeyPress(Keys key) {

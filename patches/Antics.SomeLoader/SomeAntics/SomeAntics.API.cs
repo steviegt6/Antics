@@ -20,6 +20,10 @@ namespace SomeAntics
 
 		public static event InstanceDelegate PostUpdateGlobal;
 
+		public static event InstanceDelegate PreDrawGlobal;
+
+		public static event InstanceDelegate PostDrawGlobal;
+
 		public bool JustPressed(Keys key) {
 			bool trueValue = do_JustPressed(ref key);
 			bool? value = null;

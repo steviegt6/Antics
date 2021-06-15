@@ -1,0 +1,76 @@
+--- src/SomeAntics/SomeAntics/Map/Level.cs
++++ src/Antics.SomeLoader/SomeAntics/Map/Level.cs
+@@ -29,7 +_,7 @@
+ 			set;
+ 		}
+ 
+-		public void Update(SomeAntics game) {
++		public virtual void Update(SomeAntics game) {
+ 			_interactables.DoInverted(delegate (Interactable e) {
+ 				if (e.PreUpdate(game)) {
+ 					e.Update(game);
+@@ -38,14 +_,14 @@
+ 			});
+ 		}
+ 
+-		public void DrawWalls(SpriteBatch spriteBatch) {
++		public virtual void DrawWalls(SpriteBatch spriteBatch) {
+ 			spriteBatch.Draw(Floor, Vector2.Zero, FloorColor);
+ 			_walls.Do(delegate (Rectangle w) {
+ 				spriteBatch.Draw(TextureManager.pixel, w, Color.Black);
+ 			});
+ 		}
+ 
+-		public void Draw(SpriteBatch spriteBatch) {
++		public virtual void Draw(SpriteBatch spriteBatch) {
+ 			_interactables.Do(delegate (Interactable e) {
+ 				e.Draw(spriteBatch);
+ 			});
+@@ -67,19 +_,19 @@
+ 			}
+ 		}
+ 
+-		public void DrawWords(SpriteBatch spriteBatch) {
++		public virtual void DrawWords(SpriteBatch spriteBatch) {
+ 			_interactables.Do(delegate (Interactable e) {
+ 				e.DrawWords(spriteBatch);
+ 			});
+ 		}
+ 
+-		public void AddWalls(params Rectangle[] walls) {
++		public virtual void AddWalls(params Rectangle[] walls) {
+ 			walls.Do(delegate (Rectangle w) {
+ 				_walls.Add(w);
+ 			});
+ 		}
+ 
+-		public void AddInteractable(params Interactable[] interactables) {
++		public virtual void AddInteractable(params Interactable[] interactables) {
+ 			interactables.Do(delegate (Interactable i) {
+ 				i.Level = this;
+ 				_interactables.Add(i);
+@@ -87,20 +_,20 @@
+ 			});
+ 		}
+ 
+-		public void RemoveInteractable(Interactable interactable) {
++		public virtual void RemoveInteractable(Interactable interactable) {
+ 			interactable.Level = null;
+ 			_interactables.Remove(interactable);
+ 		}
+ 
+-		public int IndexOf(Interactable interactable) => _interactables.IndexOf(interactable);
++		public virtual int IndexOf(Interactable interactable) => _interactables.IndexOf(interactable);
+ 
+-		public void MoveToEnd(int index) {
++		public virtual void MoveToEnd(int index) {
+ 			Interactable item = _interactables[index];
+ 			_interactables.RemoveAt(index);
+ 			_interactables.Add(item);
+ 		}
+ 
+-		public bool Any(Predicate<Interactable> predicate) {
++		public virtual bool Any(Predicate<Interactable> predicate) {
+ 			for (int i = 0; i < _interactables.Count; i++) {
+ 				if (predicate(_interactables[i]))
+ 					return true;
