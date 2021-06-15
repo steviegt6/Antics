@@ -1,22 +1,10 @@
 --- src/SomeAntics/SomeAntics/Program.cs
 +++ src/Antics.SomeLoader/SomeAntics/Program.cs
-@@ -1,4 +_,10 @@
+@@ -1,4 +_,7 @@
  using System;
 +using System.Runtime.CompilerServices;
-+using SomeAntics.API.Core;
-+using SomeAntics.API.Core.Interfaces;
-+using Webmilio.Commons.Extensions;
 +
 +[assembly: InternalsVisibleTo("Antics.SomeLoader")]
  
  namespace SomeAntics
  {
-@@ -6,6 +_,8 @@
- 	{
- 		[STAThread]
- 		private static void Main() {
-+			ModManager.Mods.Do(x => x.PreGameLaunch());
-+
- 			using (SomeAntics someAntics = new SomeAntics()) {
- 				someAntics.Run();
- 			}
