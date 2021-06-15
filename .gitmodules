@@ -1,0 +1,3 @@
+[submodule "PatchReviewer"]
+	path = PatchReviewer
+	url = https://github.com/TeaAPI/PatchReviewer.git
