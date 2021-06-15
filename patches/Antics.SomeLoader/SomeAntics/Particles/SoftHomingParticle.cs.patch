@@ -23,7 +23,7 @@
 +		}
 +
 +		public SoftHomingParticle(Vector2 position, Color color, Interactable target, int size, int lifespan, string modName) 
-+            : base(position, color, size, lifespan, modName) {
++			: base(position, color, size, lifespan, modName) {
  			Target = target;
  		}
  

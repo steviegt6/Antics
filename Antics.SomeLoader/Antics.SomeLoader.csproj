@@ -16,7 +16,7 @@
       <HintPath>..\..\..\..\Downloads\SomeAntics (1)\MonoGame.Framework.dll</HintPath>
     </Reference>
     <Reference Include="SomeAntics">
-      <HintPath>..\..\..\..\Downloads\SomeAntics (1)\SomeAntics.dll</HintPath>
+      <HintPath>..\src\Antics.SomeLoader\SomeAntics\bin\Debug\net5.0\SomeAntics.dll</HintPath>
     </Reference>
   </ItemGroup>
 

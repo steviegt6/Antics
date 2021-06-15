@@ -1,0 +1,10 @@
+--- src/SomeAntics/SomeAntics/SomeAntics.cs
++++ src/Antics.SomeLoader/SomeAntics/SomeAntics.cs
+@@ -18,6 +_,7 @@
+ 		public static SpriteBatch spriteBatch;
+ 		public static SpriteFont wordFont;
+ 		public readonly Random rand = new Random();
++		public GraphicsDeviceManager DeviceManager => _graphics;
+ 		private readonly GraphicsDeviceManager _graphics;
+ 		private bool _contentLoaded;
+ 

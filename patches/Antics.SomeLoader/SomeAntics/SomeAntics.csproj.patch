@@ -1,0 +1,13 @@
+--- src/SomeAntics/SomeAntics/SomeAntics.csproj
++++ src/Antics.SomeLoader/SomeAntics/SomeAntics.csproj
+@@ -17,6 +_,10 @@
+   </ItemGroup>
+   <ItemGroup>
+     <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
++    <PackageReference Include="MonoMod" Version="21.4.29.1" />
++    <PackageReference Include="MonoMod.Common" Version="21.6.13.1" />
++    <PackageReference Include="MonoMod.RuntimeDetour" Version="21.4.29.1" />
++    <PackageReference Include="MonoMod.Utils" Version="21.4.29.1" />
+   </ItemGroup>
+   <ItemGroup>
+     <Reference Include="WebmiliosCommons">
