@@ -4,6 +4,18 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <ApplicationIcon>icon.ico</ApplicationIcon>
+    <StartupObject>Antics.SomeLoader.Launcher</StartupObject>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\src\Antics.SomeLoader\SomeAntics\bin\Debug</OutputPath>
+    <DocumentationFile>..\src\Antics.SomeLoader\SomeAntics\obj\Debug\net5.0\Antics.SomeLoader.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\src\Antics.SomeLoader\SomeAntics\bin\Release</OutputPath>
+    <DocumentationFile>..\src\Antics.SomeLoader\SomeAntics\obj\Release\net5.0\Antics.SomeLoader.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,11 +24,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\src\Antics.SomeLoader\SomeAntics\SomeAntics.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="MonoGame.Framework">
       <HintPath>..\..\..\..\Downloads\SomeAntics (1)\MonoGame.Framework.dll</HintPath>
-    </Reference>
-    <Reference Include="SomeAntics">
-      <HintPath>..\src\Antics.SomeLoader\SomeAntics\bin\Debug\net5.0\SomeAntics.dll</HintPath>
     </Reference>
   </ItemGroup>
 

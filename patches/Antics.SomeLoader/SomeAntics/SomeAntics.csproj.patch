@@ -1,5 +1,23 @@
 --- src/SomeAntics/SomeAntics/SomeAntics.csproj
 +++ src/Antics.SomeLoader/SomeAntics/SomeAntics.csproj
+@@ -1,14 +_,15 @@
+ <Project Sdk="Microsoft.NET.Sdk">
+   <Import Project="../Configuration.targets" />
+   <PropertyGroup>
+-    <OutputType>WinExe</OutputType>
++    <OutputType>Library</OutputType>
+     <TargetFramework>net5.0</TargetFramework>
+     <Version>1.0.0.0</Version>
+     <Company>SomeAntics</Company>
+     <RootNamespace>SomeAntics</RootNamespace>
++    <Platforms>AnyCPU</Platforms>
+   </PropertyGroup>
+   <PropertyGroup Condition="$(Configuration.Contains('Server'))">
+-    <OutputType>Exe</OutputType>
++    <OutputType>Library</OutputType>
+     <OutputName>$(OutputName)Server</OutputName>
+   </PropertyGroup>
+   <ItemGroup>
 @@ -17,6 +_,10 @@
    </ItemGroup>
    <ItemGroup>
