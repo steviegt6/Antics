@@ -1,6 +1,6 @@
 --- src/SomeAntics/SomeAntics/SomeAntics.csproj
 +++ src/Antics.SomeLoader/SomeAntics/SomeAntics.csproj
-@@ -1,14 +_,15 @@
+@@ -1,22 +_,30 @@
  <Project Sdk="Microsoft.NET.Sdk">
    <Import Project="../Configuration.targets" />
    <PropertyGroup>
@@ -17,8 +17,12 @@
 +    <OutputType>Library</OutputType>
      <OutputName>$(OutputName)Server</OutputName>
    </PropertyGroup>
++  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
++    <PlatformTarget>AnyCPU</PlatformTarget>
++  </PropertyGroup>
    <ItemGroup>
-@@ -17,6 +_,10 @@
+     <EmbeddedResource Include="Icon.bmp" />
+     <EmbeddedResource Include="Icon.ico" />
    </ItemGroup>
    <ItemGroup>
      <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />

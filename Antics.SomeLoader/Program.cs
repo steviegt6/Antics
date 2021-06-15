@@ -24,9 +24,9 @@ namespace Antics.SomeLoader
 		/// <summary>
 		///     Universal instance of <see cref="SomeAntics.SomeAntics"/>.
 		/// </summary>
-		public static SomeAntics.SomeAntics AnticsInstance { get; private set; }
+		public static SomeAntics.SomeAntics AnticsInstance { get; private set; } = null!;
 
-		public static string ExecutableDirectory => Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+		public static string ExecutableDirectory => Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!;
 
 		public static string LibraryDirectory => ExecutableDirectory; // change eventually
 
@@ -34,12 +34,13 @@ namespace Antics.SomeLoader
 		/// </summary>
 		public static void Main() {
 			Console.Title = "Antics.SomeLoader - by convicted tomatophile";
-
 			PersonalCLI.WriteStaticText();
 
 			CommandLineUtilities.WriteLineWithColor("Hooking into AssemblyResolve", ConsoleColor.DarkGray);
 
 			AppDomain.CurrentDomain.AssemblyResolve += CurrentDomainOnAssemblyResolve;
+
+			CommandLineUtilities.WriteLineWithColor("Loading all DLLs in library directory", ConsoleColor.DarkGray);
 
 			CommandLineUtilities.WriteLineWithColor("Asserting the presence of a modded copy of SomeAntics...",
 				ConsoleColor.DarkGray);
@@ -48,11 +49,14 @@ namespace Antics.SomeLoader
 
 			CommandLineUtilities.WriteLineWithColor("Launching SomeAntics...", ConsoleColor.DarkGray);
 
+			RunGame();
+		}
+
+		/// <summary>
+		/// </summary>
+		public static void RunGame() {
 			try {
-				using SomeAntics.SomeAntics antics = new();
-				AnticsInstance = antics;
-				AnticsInstance.Run();
-				// Run(); // Separate method to prevent an immediate load attempt
+				InternalRun(); // Separate method to prevent an immediate load attempt
 			}
 			catch (Exception e) {
 				CommandLineUtilities.WriteLineWithColor("Caught error, closing safely:", ConsoleColor.Yellow);
@@ -61,7 +65,7 @@ namespace Antics.SomeLoader
 			} // Exit once the process has exited, maybe don't, we'll determine later
 		}
 
-		private static void Run() {
+		private static void InternalRun() {
 			using SomeAntics.SomeAntics antics = new();
 			AnticsInstance = antics;
 			AnticsInstance.Run();
@@ -92,7 +96,8 @@ namespace Antics.SomeLoader
 
 		private static void AssertModdedPresence() {
 			try {
-				_ = Type.GetType($"SomeAntics.API.Mod, {Path.Combine(LibraryDirectory, "SomeAntics.dll")}", true);
+				// SomeAntics always present
+				typeof(SomeAntics.SomeAntics).Assembly.GetType("SomeAntics.API.Mod", true);
 			}
 			catch (Exception e) {
 				if (File.Exists(Path.Combine(ExecutableDirectory, "SomeAntics.dll"))) {
