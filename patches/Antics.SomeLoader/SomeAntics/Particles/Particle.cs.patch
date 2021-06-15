@@ -1,0 +1,68 @@
+--- src/SomeAntics/SomeAntics/Particles/Particle.cs
++++ src/Antics.SomeLoader/SomeAntics/Particles/Particle.cs
+@@ -1,12 +_,15 @@
+ using Microsoft.Xna.Framework;
+ using Microsoft.Xna.Framework.Graphics;
+ using System;
++using SomeAntics.API.Core.Interfaces;
+ 
+ namespace SomeAntics.Particles
+ {
+-	public class Particle
++	public class Particle : IModIdentity
+ 	{
+-		private static Random rand = new Random();
++		public static Random rand => new Random();
++
++        public string ModName { get; internal set; }
+ 
+ 		public int Lifespan {
+ 			get;
+@@ -43,19 +_,22 @@
+ 			set;
+ 		}
+ 
+-		public Particle(Vector2 position, Color color)
++		internal Particle(Vector2 position, Color color)
+ 			: this(position, color, 4 + rand.Next(4)) {
++			ModName = "Antics";
+ 		}
+ 
+-		public Particle(Vector2 position, Color color, int size)
++        internal Particle(Vector2 position, Color color, int size)
+ 			: this(position, color, size, 30 + rand.Next(30)) {
++			ModName = "Antics";
+ 		}
+ 
+-		public Particle(Vector2 position, Color color, int size, int lifespan)
++        internal Particle(Vector2 position, Color color, int size, int lifespan)
+ 			: this(position, new Vector2(-3 + rand.Next(6), -3 + rand.Next(6)), color, size, 2f * (float)rand.NextDouble(), (0.25f + (float)rand.NextDouble()) / 30f, lifespan) {
++			ModName = "Antics";
+ 		}
+ 
+-		public Particle(Vector2 position, Vector2 velocity, Color color, int size, float rotation, float rotSpeed, int life) {
++        internal Particle(Vector2 position, Vector2 velocity, Color color, int size, float rotation, float rotSpeed, int life) {
+ 			Position = position;
+ 			Velocity = velocity;
+ 			Color = color;
+@@ -63,16 +_,17 @@
+ 			Rotation = rotation;
+ 			RotSpeed = rotSpeed;
+ 			Lifespan = life;
++			ModName = "Antics";
+ 		}
+ 
+-		public virtual void Update() {
++        public virtual void Update() {
+ 			Position += Velocity;
+ 			Rotation += RotSpeed;
+ 			Lifespan--;
+ 		}
+ 
+-		public void Draw(SpriteBatch spriteBatch) {
++		public virtual void Draw(SpriteBatch spriteBatch) {
+ 			spriteBatch.Draw(TextureManager.pixel, Position, new Rectangle((int)Position.X, (int)Position.Y, Size, Size), Color, Rotation, default(Vector2), 1f, SpriteEffects.None, 0f);
+ 		}
+-	}
++    }
+ }
