@@ -30,17 +30,15 @@ namespace Antics.SomeLoader
 
 		public static string LibraryDirectory => ExecutableDirectory; // change eventually
 
+		static Launcher() {
+			AppDomain.CurrentDomain.AssemblyResolve += CurrentDomainOnAssemblyResolve;
+		}
+
 		/// <summary>
 		/// </summary>
 		public static void Main() {
 			Console.Title = "Antics.SomeLoader - by convicted tomatophile";
 			PersonalCLI.WriteStaticText();
-
-			CommandLineUtilities.WriteLineWithColor("Hooking into AssemblyResolve", ConsoleColor.DarkGray);
-
-			AppDomain.CurrentDomain.AssemblyResolve += CurrentDomainOnAssemblyResolve;
-
-			CommandLineUtilities.WriteLineWithColor("Loading all DLLs in library directory", ConsoleColor.DarkGray);
 
 			CommandLineUtilities.WriteLineWithColor("Asserting the presence of a modded copy of SomeAntics...",
 				ConsoleColor.DarkGray);
