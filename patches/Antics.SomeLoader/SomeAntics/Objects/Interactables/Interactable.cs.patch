@@ -1,0 +1,32 @@
+--- src/SomeAntics/SomeAntics/Objects/Interactables/Interactable.cs
++++ src/Antics.SomeLoader/SomeAntics/Objects/Interactables/Interactable.cs
+@@ -113,7 +_,7 @@
+ 
+ 		public virtual void Update(SomeAntics game) {
+ 			Sentence.ForAllWords(delegate (FunctionalWord w) {
+-				w.Affect(game, this);
++				w.do_Affect(game, this);
+ 			});
+ 
+ 			if (PreMove(game)) {
+@@ -284,7 +_,7 @@
+ 
+ 			Word word = SomeAntics.MouseWord;
+ 			FunctionalWord functionalWord = word as FunctionalWord;
+-			if (!Sentence.CanTake(word) || (functionalWord != null && !functionalWord.CanBeTransferredTo(this)))
++			if (!Sentence.CanTake(word) || (functionalWord != null && !functionalWord.do_CanBeTransferredTo(this)))
+ 				return;
+ 
+ 			Interactable source = SomeAntics.MouseWordSource;
+@@ -297,9 +_,9 @@
+ 			SomeAntics.MouseWordSource = null;
+ 			UpdateSentence();
+ 			if (functionalWord != null) {
+-				functionalWord.OnTransferred(source, this);
++				functionalWord.do_OnTransferred(source, this);
+ 				Sentence.Words.Do(delegate (Word w) {
+-					(w as FunctionalWord)?.OnTransferred(source, this, word);
++					(w as FunctionalWord)?.do_OnTransferredWithWord(source, this, word);
+ 				});
+ 			}
+ 		}

@@ -1,0 +1,11 @@
+--- src/SomeAntics/SomeAntics/Words/FunctionalWord.cs
++++ src/Antics.SomeLoader/SomeAntics/Words/FunctionalWord.cs
+@@ -4,7 +_,7 @@
+ 
+ namespace SomeAntics.Words
+ {
+-	public abstract class FunctionalWord : Word
++	public abstract partial class FunctionalWord : Word
+ 	{
+ 		public static readonly Color[] defaultColors = new Color[2] {
+ 			Color.Black,

@@ -10,6 +10,7 @@ namespace SomeAntics.API
 	public abstract class Mod : ILoadable
 	{
 		internal readonly List<GlobalDrawnWord> globalDrawnWords = new();
+		internal readonly List<GlobalFunctionalWord> globalFunctionalWords = new();
 
 		public Assembly Code { get; internal set; }
 
