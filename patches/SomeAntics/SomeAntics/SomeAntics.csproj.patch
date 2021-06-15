@@ -1,0 +1,174 @@
+--- src/decompiled/SomeAntics/SomeAntics.csproj
++++ src/SomeAntics/SomeAntics/SomeAntics.csproj
+@@ -2,6 +_,7 @@
+   <Import Project="../Configuration.targets" />
+   <PropertyGroup>
+     <OutputType>WinExe</OutputType>
++    <TargetFramework>net5.0</TargetFramework>
+     <Version>1.0.0.0</Version>
+     <Company>SomeAntics</Company>
+     <RootNamespace>SomeAntics</RootNamespace>
+@@ -11,15 +_,155 @@
+     <OutputName>$(OutputName)Server</OutputName>
+   </PropertyGroup>
+   <ItemGroup>
+-    <Reference Include="MonoGame.Framework" />
+-    <Reference Include="System.Collections" />
+-    <Reference Include="System.Runtime" />
+-    <Reference Include="System.Runtime.Extensions" />
+-    <Reference Include="WebmiliosCommons" />
+-    <Reference Include="WordLibrary" />
+-  </ItemGroup>
+-  <ItemGroup>
+     <EmbeddedResource Include="Icon.bmp" />
+     <EmbeddedResource Include="Icon.ico" />
++  </ItemGroup>
++  <ItemGroup>
++    <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
++  </ItemGroup>
++  <ItemGroup>
++    <Reference Include="WebmiliosCommons">
++      <HintPath>..\..\..\Antics.Patcher\lib\WebmiliosCommons.dll</HintPath>
++    </Reference>
++    <Reference Include="WordLibrary">
++      <HintPath>..\..\..\Antics.Patcher\lib\WordLibrary.dll</HintPath>
++    </Reference>
++  </ItemGroup>
++  <ItemGroup>
++    <None Update="Content\Fonts\font.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\blackHole.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\blockSolid2HorizontalPanel.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\blockSolid2HorizontalPanels.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\blockSolid2VerticalPanels.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\blockSolid4Panels.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\blockSolidHorizontalPanel.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\blockSolidVerticalPanel.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\book.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\bookBible.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\bookBlue.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\bookGoldEdge.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\bookGreen.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\bookHard.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\bookHell.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\bookLime.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\bookRed.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\bookRegular.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\box.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\brazier.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\candle.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\doorBar.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\doorBars.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\doorGate.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\doorOpen.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\doorWoodClassic.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\doorWoodFancy.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\fire.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\floorTiles.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\floorWood.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\flower.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\flowerOpen.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\fridge.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\goldedgebook.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\greenbook.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\iceBlock.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\machine.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\Man.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\pressurePlateButton.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\pressurePlateFrame.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\proponeTank.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\regularBook.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\safe.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\toiletPaper.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
++    <None Update="Content\Textures\trapSpike.xnb">
++      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++    </None>
+   </ItemGroup>
+ </Project>

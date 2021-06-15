@@ -1,4 +1,5 @@
-﻿using System;
+﻿#nullable enable
+using System;
 
 namespace Antics.SomeLoader.CLI.Personal
 {
@@ -7,6 +8,8 @@ namespace Antics.SomeLoader.CLI.Personal
     /// </summary>
     public static class PersonalCLI
     {
+        /// <summary>
+        /// </summary>
         public static readonly string TitleText = @$"
  Antics.SomeLoader v{Launcher.VersionString}
  SomeAntics by Laugic and Blockaroz
