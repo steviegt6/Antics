@@ -1,4 +1,5 @@
 ﻿using SomeAntics.Objects.Interactables;
+using SomeAntics.Words;
 using System.Linq;
 using WordLibrary;
 
@@ -6,76 +7,92 @@ namespace SomeAntics.API.ModTypes
 {
 	public abstract class GlobalFunctionalWord : ModLoadable
 	{
-		public static bool GetPreAffects(ref SomeAntics game, ref Interactable source) {
+		public static bool GetPreAffects(FunctionalWord funcWord, ref SomeAntics game, ref Interactable source) {
 			bool retVal = true;
 			foreach (GlobalFunctionalWord global in ModManager.Mods.SelectMany(mod => mod.globalFunctionalWords))
-				retVal = global.PreAffect(ref game, ref source);
+				retVal = global.PreAffect(funcWord, ref game, ref source);
 
 			return retVal;
 		}
 
-		public static void GetPostAffects(SomeAntics game, Interactable source) {
+		public static void GetPostAffects(FunctionalWord funcWord, SomeAntics game, Interactable source) {
 			foreach (GlobalFunctionalWord global in ModManager.Mods.SelectMany(mod => mod.globalFunctionalWords))
-				global.PostAffect(game, source);
+				global.PostAffect(funcWord, game, source);
 		}
 
-		public static bool GetPreTransferreds(ref Interactable before, ref Interactable after) {
+		public static bool GetPreTransferreds(FunctionalWord funcWord, ref Interactable before,
+			ref Interactable after) {
 			bool retVal = true;
 			foreach (GlobalFunctionalWord global in ModManager.Mods.SelectMany(mod => mod.globalFunctionalWords))
-				retVal = global.PreTransferred(ref before, ref after);
+				retVal = global.PreTransferred(funcWord, ref before, ref after);
 
 			return retVal;
 		}
 
-		public static void GetPostTransferreds(Interactable before, Interactable after) {
+		public static void GetPostTransferreds(FunctionalWord funcWord, Interactable before, Interactable after) {
 			foreach (GlobalFunctionalWord global in ModManager.Mods.SelectMany(mod => mod.globalFunctionalWords))
-				global.PostTransferred(before, after);
+				global.PostTransferred(funcWord, before, after);
 		}
 
-		public static bool GetPreTransferredWithWords(ref Interactable before, ref Interactable after, ref Word word) {
+		public static bool GetPreTransferredWithWords(FunctionalWord funcWord, ref Interactable before,
+			ref Interactable after, ref Word word) {
 			bool retVal = true;
 			foreach (GlobalFunctionalWord global in ModManager.Mods.SelectMany(mod => mod.globalFunctionalWords))
-				retVal = global.PreTransferredWithWord(ref before, ref after, ref word);
+				retVal = global.PreTransferredWithWord(funcWord, ref before, ref after, ref word);
 
 			return retVal;
 		}
 
-		public static void GetPostTransferredWithWords(Interactable before, Interactable after, Word word) {
+		public static void GetPostTransferredWithWords(FunctionalWord funcWord, Interactable before, Interactable after,
+			Word word) {
 			foreach (GlobalFunctionalWord global in ModManager.Mods.SelectMany(mod => mod.globalFunctionalWords))
-				global.PostTransferredWithWord(before, after, word);
+				global.PostTransferredWithWord(funcWord, before, after, word);
 		}
 
-		public static bool GetModifiedCanBeTransferredTo(Interactable interactable, bool retVal) {
+		public static bool GetModifiedCanBeTransferredTo(FunctionalWord funcWord, Interactable interactable,
+			bool retVal) {
 			bool? value = null;
 			foreach (GlobalFunctionalWord global in ModManager.Mods.SelectMany(mod => mod.globalFunctionalWords))
-				value = global.ModifyCanBeTransferredTo(interactable, retVal);
+				value = global.ModifyCanBeTransferredTo(funcWord, interactable, retVal);
 
 			return value ?? retVal;
 		}
 
-		public virtual bool PreAffect(ref SomeAntics game, ref Interactable source) {
+		public static string GetModifiedWord(string word) {
+			foreach (GlobalFunctionalWord global in ModManager.Mods.SelectMany(mod => mod.globalFunctionalWords))
+				global.ModifyWord(ref word);
+
+			return word;
+		}
+
+		public virtual bool PreAffect(FunctionalWord funcWord, ref SomeAntics game, ref Interactable source) {
 			return true;
 		}
 
-		public virtual void PostAffect(SomeAntics game, Interactable source) {
+		public virtual void PostAffect(FunctionalWord funcWord, SomeAntics game, Interactable source) {
 		}
 
-		public virtual bool PreTransferred(ref Interactable before, ref Interactable after) {
+		public virtual bool PreTransferred(FunctionalWord funcWord, ref Interactable before, ref Interactable after) {
 			return true;
 		}
 
-		public virtual void PostTransferred(Interactable before, Interactable after) {
+		public virtual void PostTransferred(FunctionalWord funcWord, Interactable before, Interactable after) {
 		}
 
-		public virtual bool PreTransferredWithWord(ref Interactable before, ref Interactable after, ref Word word) {
+		public virtual bool PreTransferredWithWord(FunctionalWord funcWord, ref Interactable before,
+			ref Interactable after, ref Word word) {
 			return true;
 		}
 
-		public virtual void PostTransferredWithWord(Interactable before, Interactable after, Word word) {
+		public virtual void PostTransferredWithWord(FunctionalWord funcWord, Interactable before, Interactable after,
+			Word word) {
 		}
 
-		public virtual bool? ModifyCanBeTransferredTo(Interactable interactable, bool retVal) {
+		public virtual bool? ModifyCanBeTransferredTo(FunctionalWord funcWord, Interactable interactable, bool retVal) {
 			return null;
+		}
+
+		public virtual void ModifyWord(ref string word) {
 		}
 	}
 }

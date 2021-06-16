@@ -16,14 +16,9 @@ namespace SomeAntics.API
 
 		public Assembly Code { get; internal set; }
 
-		public string ModName { get; }
+		public abstract string ModName { get; }
 
-		public Version Version { get; }
-
-		internal Mod(string name, Version version) {
-			ModName = name;
-			Version = version;
-		}
+		public Version Version { get; internal set; }
 
 		// null -> vanilla behavior
 		public virtual bool? RegisterKeyPress(Keys key) {

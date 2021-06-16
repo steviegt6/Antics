@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Antics.SomeLoader\Antics.SomeLoader.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="WordLibrary">
+      <HintPath>..\SomeAntics\bin\Debug\net5.0\WordLibrary.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

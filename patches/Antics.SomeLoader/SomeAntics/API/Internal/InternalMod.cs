@@ -1,12 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
 using SomeAntics.Map.Levels;
-using System;
 
 namespace SomeAntics.API.Internal
 {
 	public class InternalMod : Mod
 	{
-		internal InternalMod(Version version) : base("Internal Systems", version) {
+		public override string ModName => "Internal Systems";
+
+		internal InternalMod() {
 			SomeAntics.PostDrawGlobal += DrawModsAndVersion;
 		}
 

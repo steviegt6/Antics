@@ -1,6 +1,10 @@
 --- src/SomeAntics/SomeAntics/Words/FunctionalWord.cs
 +++ src/Antics.SomeLoader/SomeAntics/Words/FunctionalWord.cs
-@@ -4,7 +_,7 @@
+@@ -1,10 +_,11 @@
+ using Microsoft.Xna.Framework;
++using SomeAntics.API.ModTypes;
+ using SomeAntics.Objects.Interactables;
+ using WordLibrary;
  
  namespace SomeAntics.Words
  {
@@ -9,3 +13,11 @@
  	{
  		public static readonly Color[] defaultColors = new Color[2] {
  			Color.Black,
+@@ -18,6 +_,7 @@
+ 
+ 		protected FunctionalWord(string text)
+ 			: base(text) {
++			_text = GlobalFunctionalWord.GetModifiedWord(text);
+ 		}
+ 
+ 		public virtual void Affect(SomeAntics game, Interactable source) {
